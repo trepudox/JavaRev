@@ -1,2 +1,3 @@
 module optional {
+    requires domain;
 }
