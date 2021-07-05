@@ -16,6 +16,7 @@
         <module>streams</module>
         <module>optional</module>
         <module>functional</module>
+        <module>basico</module>
     </modules>
 
     <properties>
