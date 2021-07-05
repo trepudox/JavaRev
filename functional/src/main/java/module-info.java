@@ -1,0 +1,3 @@
+module functional {
+    requires domain;
+}
