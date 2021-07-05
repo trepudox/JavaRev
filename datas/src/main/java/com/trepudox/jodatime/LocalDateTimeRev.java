@@ -3,7 +3,7 @@ package com.trepudox.jodatime;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class LocalDateTimeTeste {
+public class LocalDateTimeTest {
 
     public static void main(String[] args) {
         System.out.println(LocalDateTime.parse("2021-07-04T00:00:01"));

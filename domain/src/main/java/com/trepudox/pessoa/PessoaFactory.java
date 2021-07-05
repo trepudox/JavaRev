@@ -1,6 +1,4 @@
-package com.trepudox.factory;
-
-import com.trepudox.pessoa.Pessoa;
+package com.trepudox.pessoa;
 
 public class PessoaFactory {
 
