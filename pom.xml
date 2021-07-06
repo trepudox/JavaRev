@@ -17,6 +17,7 @@
         <module>optional</module>
         <module>functional</module>
         <module>basico</module>
+        <module>threads</module>
     </modules>
 
     <properties>
