@@ -13,6 +13,8 @@ public class Runner2 {
 //        predicate();
 //        function();
 //        biFunction();
+        unaryOperator();
+        binaryOperator();
 
     }
 
@@ -47,6 +49,19 @@ public class Runner2 {
         BiFunction<String, Integer, String> stringConcatNumero = (str, num) -> str + String.valueOf(num);
 
         System.out.println(stringConcatNumero.apply("OI", 10));
+    }
+
+    private static void unaryOperator() {
+        UnaryOperator<String> stringToUppercase = String::toUpperCase;
+
+        System.out.println(stringToUppercase.apply("aaaaa"));
+    }
+
+    private static void binaryOperator() {
+        BinaryOperator<String> somaDeString = (s1, s2) -> s1 + s2;
+        BinaryOperator<String> somaDeString2 = String::concat;
+
+        System.out.println(somaDeString2.apply(somaDeString.apply("a", "b"), "c"));
     }
 
 }
