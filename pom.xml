@@ -18,6 +18,7 @@
         <module>functional</module>
         <module>basico</module>
         <module>threads</module>
+        <module>poo</module>
     </modules>
 
     <properties>
