@@ -12,14 +12,14 @@
         <module>main</module>
         <module>domain</module>
         <module>datas</module>
-        <module>collections</module>
+        <module>datastructure</module>
         <module>streams</module>
         <module>optional</module>
         <module>functional</module>
         <module>basico</module>
         <module>threads</module>
         <module>poo</module>
-        <module>project-reactor</module>
+        <module>projectreactor</module>
         <module>generics</module>
         <module>junit</module>
     </modules>

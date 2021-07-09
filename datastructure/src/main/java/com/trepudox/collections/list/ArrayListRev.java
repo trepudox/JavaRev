@@ -1,4 +1,4 @@
-package com.trepudox.list;
+package com.trepudox.collections.list;
 
 import java.util.ArrayList;
 import java.util.List;
