@@ -9,6 +9,12 @@ public class ArrayListRev {
         List<String> arrayList = new ArrayList<>(List.of("aa", "bb"));
 
         System.out.println(arrayList);
+
+        arrayList.add("cc");
+
+        arrayList.replaceAll(e -> e + "A");
+
+        System.out.println(arrayList);
     }
 
 }
