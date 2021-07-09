@@ -1,0 +1,3 @@
+module generics {
+    requires domain;
+}
