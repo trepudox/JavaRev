@@ -1,6 +1,7 @@
 package com.trepudox.generics.response;
 
 public class ResponseWithError<T> {
+   
     private T data;
     private ErrorRev errorRev;
 
