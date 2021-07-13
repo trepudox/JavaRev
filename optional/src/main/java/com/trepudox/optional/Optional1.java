@@ -11,6 +11,16 @@ public class Optional1 {
         Optional<Pessoa> optionalNull = Optional.empty();
         Optional<Pessoa> optionalPessoa = Optional.of(PessoaFactory.create("Marco", 19));
 
+        System.out.println(
+                optionalNull.orElseGet(() -> new Pessoa("Marco", 19))
+        );
+
+        try {
+            optionalNull.orElseThrow(() -> new ArithmeticException("Qualquer exception"));
+        } catch (ArithmeticException ex) {
+            System.out.println(ex.getMessage());
+        }
+
         optionalNull.get();
     }
 
