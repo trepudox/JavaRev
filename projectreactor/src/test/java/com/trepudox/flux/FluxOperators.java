@@ -10,6 +10,9 @@ public class FluxOperators {
 
     @Test
     void onErrorContinueTest() {
+        // é possível tratar o erro e o elemento que o causou, e então continuar o fluxo normalmente, atenção
+        // apenas à posição em que o operador estará, pois faz diferença
+
         Flux<Integer> flux = Flux.range(1, 10)
                 .flatMap(n -> {
                     if (n == 7)
