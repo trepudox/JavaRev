@@ -7,7 +7,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 // Queue == Fila, First In First Out
-public class QueueRev {
+public class LinkedListQueueRev {
 
     public static void main(String[] args) {
         Queue<Pessoa> queue = new LinkedList<>();
