@@ -1,4 +1,4 @@
-package com.trepudox.basico;
+package com.trepudox.basico.string;
 
 public class StringRev {
 
