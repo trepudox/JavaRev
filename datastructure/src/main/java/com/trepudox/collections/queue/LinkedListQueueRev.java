@@ -29,10 +29,10 @@ public class QueueRev {
 
 
         // poll() retorna o primeiro elemento, retirando-o da fila
-        queue.poll();
+        System.out.println(queue.poll());
 
         // remove() retorna o primeiro elemento, retirando-o da fila
-        queue.remove();
+        System.out.println(queue.remove());
         // a diferença entre o poll() e o remove() é sobre o tratamento quando a fila está vazia, o poll() retornará
         // nulo, o remove() lançará um NullPointerException
     }
