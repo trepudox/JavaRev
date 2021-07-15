@@ -22,6 +22,7 @@
         <module>projectreactor</module>
         <module>generics</module>
         <module>junit</module>
+        <module>files</module>
     </modules>
 
     <properties>
