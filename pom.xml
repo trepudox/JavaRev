@@ -23,6 +23,7 @@
         <module>generics</module>
         <module>junit</module>
         <module>files</module>
+        <module>jdbc</module>
     </modules>
 
     <properties>
