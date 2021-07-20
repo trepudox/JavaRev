@@ -24,6 +24,7 @@
         <module>junit</module>
         <module>files</module>
         <module>jdbc</module>
+        <module>http</module>
     </modules>
 
     <properties>
