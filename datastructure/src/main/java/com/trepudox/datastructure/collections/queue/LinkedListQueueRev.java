@@ -1,7 +1,7 @@
 package com.trepudox.datastructure.collections.queue;
 
-import com.trepudox.datastructure.pessoa.PessoaFactory;
-import com.trepudox.datastructure.pessoa.Pessoa;
+import com.trepudox.pessoa.PessoaFactory;
+import com.trepudox.pessoa.Pessoa;
 
 import java.util.LinkedList;
 import java.util.Queue;
