@@ -1,4 +1,4 @@
-package com.trepudox.datastructure.lambdas.interfaces;
+package com.trepudox.lambdas.interfaces;
 
 public interface PrintaString {
     void print(String s);

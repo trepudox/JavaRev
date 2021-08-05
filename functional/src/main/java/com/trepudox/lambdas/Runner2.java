@@ -1,4 +1,4 @@
-package com.trepudox.datastructure.lambdas;
+package com.trepudox.lambdas;
 
 import com.trepudox.pessoa.Pessoa;
 import com.trepudox.pessoa.PessoaFactory;

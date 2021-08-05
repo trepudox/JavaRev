@@ -1,4 +1,4 @@
-package com.trepudox.datastructure.lambdas;
+package com.trepudox.lambdas;
 
 import com.trepudox.datastructure.lambdas.interfaces.PrintaString;
 import com.trepudox.datastructure.lambdas.interfaces.IntegerCalculator;
