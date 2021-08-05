@@ -1,15 +1,18 @@
 package com.trepudox.jdbc;
 
+import com.trepudox.jdbc.domain.ConnectionFactory;
+
 import java.sql.*;
 
 public class Teste {
 
     public static void main(String[] args) {
-        String url = "jdbc:mysql://localhost:3306/db_jdbc_teste?serverTimezone=UTC";
-        String user = "root";
-        String password = "root";
+//        String url = "jdbc:mysql://localhost:3306/db_jdbc_teste?serverTimezone=UTC";
+//        String user = "root";
+//        String password = "root";
 
-        try (Connection connection = DriverManager.getConnection(url, user, password)) {
+//        try (Connection connection = DriverManager.getConnection(url, user, password)) {
+        try (Connection connection = ConnectionFactory.create()) {
             PreparedStatement selectAllProfissao = connection.prepareStatement("SELECT * FROM Profissao");
             PreparedStatement selectProfissaoWhereId = connection.prepareStatement("SELECT * FROM Profissao WHERE id = ?");
             PreparedStatement selectAllPessoa = connection.prepareStatement("SELECT * FROM Pessoa");
@@ -29,7 +32,7 @@ public class Teste {
             while (rsPessoa.next()) {
                 String id = rsPessoa.getString("id");
                 String nome = rsPessoa.getString("nome");
-                String dataNasc = rsPessoa.getString("dataNasc");
+                String dataNasc = rsPessoa.getString("data_nasc");
                 String idProfissao = rsPessoa.getString("profissao_id");
 
                 selectProfissaoWhereId.setInt(1, Integer.parseInt(idProfissao));
@@ -39,7 +42,7 @@ public class Teste {
 
                 String nomeProfissao = resultSetProfissaoDaPessoa.getString("nome");
 
-                System.out.println(id + ". " + nome + " " + dataNasc + " - " + nomeProfissao);
+                System.out.println(id + ". " + nome + " - " + dataNasc + " - " + nomeProfissao);
             }
 
         } catch (SQLException e) {
