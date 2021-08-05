@@ -25,6 +25,7 @@
         <module>files</module>
         <module>jdbc</module>
         <module>web</module>
+        <module>comparations</module>
     </modules>
 
     <properties>
