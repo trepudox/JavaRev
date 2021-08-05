@@ -1,4 +1,4 @@
-package com.trepudox.jodatime.testes.jodatime;
+package com.trepudox.datas.jodatime;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

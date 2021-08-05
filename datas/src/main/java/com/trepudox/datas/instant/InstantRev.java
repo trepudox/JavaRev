@@ -1,4 +1,4 @@
-package com.trepudox.instant;
+package com.trepudox.datas.instant;
 
 import java.time.*;
 
