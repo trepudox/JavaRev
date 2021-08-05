@@ -1,4 +1,4 @@
-package com.trepudox.jodatime.testes.jodatime.testes.comparacao;
+package com.trepudox.datas.jodatime.testes.comparacao;
 
 import java.time.LocalDate;
 import java.util.Comparator;

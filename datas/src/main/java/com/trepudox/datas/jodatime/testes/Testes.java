@@ -1,4 +1,4 @@
-package com.trepudox.jodatime.testes.jodatime.testes;
+package com.trepudox.datas.jodatime.testes;
 
 import com.trepudox.jodatime.testes.jodatime.testes.comparacao.OrdernadorPorDia;
 import com.trepudox.jodatime.testes.jodatime.testes.comparacao.OrdernadorPorMes;
