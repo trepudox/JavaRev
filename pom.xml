@@ -26,6 +26,7 @@
         <module>jdbc</module>
         <module>web</module>
         <module>comparations</module>
+        <module>jwt</module>
     </modules>
 
     <properties>
