@@ -1,7 +1,5 @@
 package com.trepudox.jdbc;
 
-import com.trepudox.jdbc.domain.ConnectionFactory;
-
 import java.sql.*;
 
 public class Teste {

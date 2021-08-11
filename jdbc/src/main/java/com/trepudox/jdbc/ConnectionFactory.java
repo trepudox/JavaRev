@@ -1,4 +1,4 @@
-package com.trepudox.jdbc.domain;
+package com.trepudox.jdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
