@@ -27,6 +27,7 @@
         <module>web</module>
         <module>comparations</module>
         <module>jwt</module>
+        <module>jpa</module>
     </modules>
 
     <properties>
