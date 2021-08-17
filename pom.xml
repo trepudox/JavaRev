@@ -28,6 +28,7 @@
         <module>comparations</module>
         <module>jwt</module>
         <module>jpa</module>
+        <module>swing</module>
     </modules>
 
     <properties>
