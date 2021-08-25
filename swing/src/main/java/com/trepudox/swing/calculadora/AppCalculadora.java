@@ -1,6 +1,6 @@
-package javaswing;
+package com.trepudox.swing.calculadora;
 
-import javaswing.calculadora.TelaCalculadora;
+import package com.trepudox.swing.calculadora;
 
 public class AppCalculadora {
 	public static void main(String[] args) {

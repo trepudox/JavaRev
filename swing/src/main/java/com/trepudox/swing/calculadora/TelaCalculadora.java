@@ -34,9 +34,9 @@ public class TelaCalculadora extends JFrame {
 	
 	
 	public TelaCalculadora() {
-		setName("Calculadora");
+		setTitle("Calculadora");
 		setLayout(frameGridLayout);
-		setSize(new Dimension(300, 200));
+		setSize(new Dimension(350, 500));
 		
 		init();
 		
