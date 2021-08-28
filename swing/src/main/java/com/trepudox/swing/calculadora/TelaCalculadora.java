@@ -156,7 +156,7 @@ public class TelaCalculadora extends JFrame implements ActionListener, KeyListen
 	@Override
 	public void keyTyped(KeyEvent e) {
 		char keyChar = e.getKeyChar();
-		System.out.println("chegou");
+		log.info("{}", keyChar);
 		switch (keyChar) {
 			case 'a':
 				JOptionPane.showMessageDialog(this, "a");
