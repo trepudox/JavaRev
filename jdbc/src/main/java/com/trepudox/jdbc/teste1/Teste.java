@@ -1,4 +1,6 @@
-package com.trepudox.jdbc;
+package com.trepudox.jdbc.teste1;
+
+import com.trepudox.jdbc.teste1.ConnectionFactory;
 
 import java.sql.*;
 
