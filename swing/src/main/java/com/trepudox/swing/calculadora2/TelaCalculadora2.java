@@ -1,4 +1,4 @@
-package javaswing.calculadora;
+package com.trepudox.swing.calculadora2;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
@@ -117,7 +117,7 @@ public class TelaCalculadora2 extends JFrame {
 	
 	private void numInit() {
 		num.setAlignmentX(RIGHT_ALIGNMENT);
-		num.setFont(new Font("Arial", 0, 50));
+		num.setFont(new Font("Arial", Font.PLAIN, 50));
 	}
 	
 }

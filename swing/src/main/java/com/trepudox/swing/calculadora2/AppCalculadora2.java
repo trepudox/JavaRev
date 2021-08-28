@@ -1,4 +1,4 @@
-package javaswing.calculadora;
+package com.trepudox.swing.calculadora2;
 
 public class AppCalculadora2 {
 
