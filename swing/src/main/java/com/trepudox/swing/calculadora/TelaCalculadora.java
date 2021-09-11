@@ -30,8 +30,7 @@ public class TelaCalculadora extends JFrame implements ActionListener, KeyListen
 	// JTextField
 	protected static final JTextField num1 = new JTextField("0");
 	protected static final JTextField num2 = new JTextField("0");
-	
-	
+
 	public TelaCalculadora() {
 		setTitle("Calculadora");
 		setLayout(frameGridLayout);

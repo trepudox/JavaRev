@@ -26,7 +26,6 @@ public class TelaMenuTeste1 extends JFrame implements ActionListener {
     // JLabel
     private static final JLabel jLabel = new JLabel("Teste de menus!");
 
-
     public TelaMenuTeste1() {
         this.setJMenuBar(jMenuBarr);
         initJMenu();
