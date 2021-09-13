@@ -29,6 +29,7 @@
         <module>jwt</module>
         <module>jpa</module>
         <module>swing</module>
+        <module>CRUDSwingJDBC</module>
     </modules>
 
     <properties>
