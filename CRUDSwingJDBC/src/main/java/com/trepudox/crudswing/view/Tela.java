@@ -9,7 +9,7 @@ public class Tela extends JFrame {
 
     public Tela() {
 
-        setTitle("CRUD Pessoa");
+        setTitle("CRUD Pessoa/Profissao");
         setVisible(true);
         setMinimumSize(new Dimension(300, 200));
     }

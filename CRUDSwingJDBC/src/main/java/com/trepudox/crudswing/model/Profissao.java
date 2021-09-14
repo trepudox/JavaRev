@@ -9,12 +9,10 @@ import lombok.ToString;
 @Setter
 @Builder
 @ToString
-public class Pessoa {
+public class Profissao {
 
     private Integer id;
     private String nome;
-    private String sobrenome;
-    private Integer idade;
-    private Integer profissao_id;
+    private Double salario;
 
 }

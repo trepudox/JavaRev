@@ -2,63 +2,63 @@ package com.trepudox.crudswing.model.dao;
 
 import com.trepudox.crudswing.db.DBConnection;
 import com.trepudox.crudswing.model.Pessoa;
+import com.trepudox.crudswing.model.Profissao;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@Slf4j
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class PessoaDAO {
+@Slf4j
+public class ProfissaoDAO {
 
-    public static List<Pessoa> getAll() {
-        List<Pessoa> pessoas = new ArrayList<>();
+    public static List<Profissao> getAll() {
+        List<Profissao> profissoes = new ArrayList<>();
 
         try (Connection con = DBConnection.getConnection();
-             PreparedStatement stmt = con.prepareStatement("SELECT * FROM pessoa;")) {
+             PreparedStatement stmt = con.prepareStatement("SELECT * FROM profissao;")) {
 
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
-                Pessoa p = Pessoa.builder()
+                Profissao p = Profissao.builder()
                         .id(rs.getInt("id"))
                         .nome(rs.getString("nome"))
-                        .sobrenome(rs.getString("sobrenome"))
-                        .idade(rs.getInt("idade"))
-                        .profissao_id(rs.getInt("profissao_id"))
+                        .salario(rs.getDouble("salario"))
                         .build();
 
-                pessoas.add(p);
+                profissoes.add(p);
             }
 
         } catch (SQLException e) {
             log.error("ERRO: " + e.getMessage());
         }
 
-        return pessoas;
+        return profissoes;
     }
 
-    public static Optional<Pessoa> getById(int id) {
-        Pessoa pessoa = null;
+    public static Optional<Profissao> getById(int id) {
+        Profissao profissao = null;
 
         try (Connection con = DBConnection.getConnection();
-             PreparedStatement stmt = con.prepareStatement("SELECT * FROM pessoa WHERE id = ?;")) {
+             PreparedStatement stmt = con.prepareStatement("SELECT * FROM profissao WHERE id = ?;")) {
 
             stmt.setInt(1, id);
 
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
-                pessoa = Pessoa.builder()
+                profissao = Profissao.builder()
                         .id(rs.getInt("id"))
                         .nome(rs.getString("nome"))
-                        .sobrenome(rs.getString("sobrenome"))
-                        .idade(rs.getInt("idade"))
-                        .profissao_id(rs.getInt("profissao_id"))
+                        .salario(rs.getDouble("salario"))
                         .build();
             }
 
@@ -66,17 +66,15 @@ public class PessoaDAO {
             log.error("ERRO: " + e.getMessage());
         }
 
-        return Optional.ofNullable(pessoa);
+        return Optional.ofNullable(profissao);
     }
 
-    public static int insert(String nome, String sobrenome, int idade, int profissao_id) {
+    public static int insert(String nome, double salario) {
         try (Connection con = DBConnection.getConnection();
-             PreparedStatement stmt = con.prepareStatement("INSERT INTO pessoa(nome, sobrenome, idade, profissao_id) VALUE (?, ?, ?, ?);")) {
+             PreparedStatement stmt = con.prepareStatement("INSERT INTO profissao(nome, salario) VALUE (?, ?);")) {
 
             stmt.setString(1, nome);
-            stmt.setString(2, sobrenome);
-            stmt.setInt(3, idade);
-            stmt.setInt(4, profissao_id);
+            stmt.setDouble(2, salario);
 
             return stmt.executeUpdate();
         } catch (SQLException e) {
@@ -86,14 +84,13 @@ public class PessoaDAO {
         return 0;
     }
 
-    public static int update(int id, String nome, String sobrenome, int idade) {
+    public static int update(int id, String nome, double salario) {
         try (Connection con = DBConnection.getConnection();
-             PreparedStatement stmt = con.prepareStatement("UPDATE pessoa SET nome = ?, sobrenome = ?, idade = ? WHERE id = ?;")) {
+             PreparedStatement stmt = con.prepareStatement("UPDATE profissao SET nome = ?, salario = ? WHERE id = ?;")) {
 
             stmt.setString(1, nome);
-            stmt.setString(2, sobrenome);
-            stmt.setInt(3, idade);
-            stmt.setInt(4, id);
+            stmt.setDouble(2, salario);
+            stmt.setInt(3, id);
 
             return stmt.executeUpdate();
 
@@ -106,7 +103,7 @@ public class PessoaDAO {
 
     public static int delete(int id) {
         try (Connection con = DBConnection.getConnection();
-             PreparedStatement stmt = con.prepareStatement("DELETE FROM pessoa WHERE id = ?;")) {
+             PreparedStatement stmt = con.prepareStatement("DELETE FROM profissao WHERE id = ?;")) {
 
             stmt.setInt(1, id);
 
