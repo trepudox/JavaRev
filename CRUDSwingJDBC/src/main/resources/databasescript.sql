@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS pessoa(
     PRIMARY KEY (id),
     
     CONSTRAINT FK_profissao_id 
-    FOREIGN KEY (profissao_id) REFERENCES profissao.id
+    FOREIGN KEY (profissao_id) REFERENCES profissao(id)
     ON UPDATE CASCADE 
     ON DELETE CASCADE
 );
