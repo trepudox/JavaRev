@@ -1,6 +1,5 @@
 package com.trepudox.swing.telaConexaoBD;
 
-import com.mysql.cj.exceptions.WrongArgumentException;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.swing.*;
