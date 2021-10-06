@@ -1,8 +1,8 @@
 package com.trepudox.datas.jodatime.testes;
 
-import com.trepudox.jodatime.testes.jodatime.testes.comparacao.OrdernadorPorDia;
-import com.trepudox.jodatime.testes.jodatime.testes.comparacao.OrdernadorPorMes;
-import com.trepudox.jodatime.testes.jodatime.testes.comparacao.OrdernadorPorAno;
+import com.trepudox.datas.jodatime.testes.comparacao.OrdernadorPorAno;
+import com.trepudox.datas.jodatime.testes.comparacao.OrdernadorPorDia;
+import com.trepudox.datas.jodatime.testes.comparacao.OrdernadorPorMes;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
