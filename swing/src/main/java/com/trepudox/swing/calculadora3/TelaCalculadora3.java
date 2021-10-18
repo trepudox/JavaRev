@@ -4,8 +4,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
-public class TelaCalculadora3 extends JFrame implements ActionListener {
+public class TelaCalculadora3 extends JFrame implements ActionListener, KeyListener {
 
     static Font sansSerif15 = new Font("Sans Serif", Font.BOLD, 15);
     static Font sansSerif20 = new Font("Sans Serif", Font.BOLD, 20);
@@ -60,6 +62,8 @@ public class TelaCalculadora3 extends JFrame implements ActionListener {
 
         this.setSize(250, 250);
         this.setResizable(false);
+
+        this.addKeyListener(this);
     }
 
     private void jLabelInit() {
@@ -283,4 +287,20 @@ public class TelaCalculadora3 extends JFrame implements ActionListener {
         jLabel.setText(stringResult);
     }
 
+    @Override
+    public void keyTyped(KeyEvent e) {
+        /* not in use */
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        System.out.println("entrou");
+        System.out.println(e.getKeyChar());
+        this.actionPerformed(new ActionEvent(this, 0, String.valueOf(e.getKeyChar())));
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        /* not in use */
+    }
 }
