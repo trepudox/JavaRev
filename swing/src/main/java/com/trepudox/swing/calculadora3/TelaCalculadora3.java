@@ -64,6 +64,8 @@ public class TelaCalculadora3 extends JFrame implements ActionListener, KeyListe
         this.setResizable(false);
 
         this.addKeyListener(this);
+        setFocusable(true);
+        requestFocus();
     }
 
     private void jLabelInit() {
@@ -76,74 +78,91 @@ public class TelaCalculadora3 extends JFrame implements ActionListener, KeyListe
     private void botaoInit() {
         // PRIMEIRA LINHA
         btn7.addActionListener(this);
+        btn7.addKeyListener(this);
         btn7.setActionCommand("7");
         btn7.setFont(sansSerif15);
 
         btn8.addActionListener(this);
+        btn8.addKeyListener(this);
         btn8.setActionCommand("8");
         btn8.setFont(sansSerif15);
 
         btn9.addActionListener(this);
+        btn9.addKeyListener(this);
         btn9.setActionCommand("9");
         btn9.setFont(sansSerif15);
 
         btnDiv.addActionListener(this);
+        btnDiv.addKeyListener(this);
         btnDiv.setActionCommand("/");
         btnDiv.setFont(sansSerif15);
 
         // SEGUNDA LINHA
         btn4.addActionListener(this);
+        btn4.addKeyListener(this);
         btn4.setActionCommand("4");
         btn4.setFont(sansSerif15);
 
         btn5.addActionListener(this);
+        btn5.addKeyListener(this);
         btn5.setActionCommand("5");
         btn5.setFont(sansSerif15);
 
         btn6.addActionListener(this);
+        btn6.addKeyListener(this);
         btn6.setActionCommand("6");
         btn6.setFont(sansSerif15);
 
         btnMult.addActionListener(this);
+        btnMult.addKeyListener(this);
         btnMult.setActionCommand("*");
         btnMult.setFont(sansSerif15);
 
         // TERCEIRA LINHA
         btn1.addActionListener(this);
+        btn1.addKeyListener(this);
         btn1.setActionCommand("1");
         btn1.setFont(sansSerif15);
 
         btn2.addActionListener(this);
+        btn2.addKeyListener(this);
         btn2.setActionCommand("2");
         btn2.setFont(sansSerif15);
 
         btn3.addActionListener(this);
+        btn3.addKeyListener(this);
         btn3.setActionCommand("3");
         btn3.setFont(sansSerif15);
 
         btnSub.addActionListener(this);
+        btnSub.addKeyListener(this);
         btnSub.setActionCommand("-");
         btnSub.setFont(sansSerif15);
 
         // QUARTA LINHA
         btnC.addActionListener(this);
+        btnC.addKeyListener(this);
         btnC.setActionCommand("C");
         btnC.setFont(sansSerif15);
 
         btn0.addActionListener(this);
+        btn0.addKeyListener(this);
         btn0.setActionCommand("0");
         btn0.setFont(sansSerif15);
 
         btnPonto.addActionListener(this);
+        btnPonto.addKeyListener(this);
         btnPonto.setActionCommand(".");
         btnPonto.setFont(sansSerif15);
 
         btnSom.addActionListener(this);
+        btnSom.addKeyListener(this);
         btnSom.setActionCommand("+");
         btnSom.setFont(sansSerif15);
 
         // IGUAL
         btnIgual.addActionListener(this);
+        btnIgual.addKeyListener(this);
         btnIgual.setActionCommand("=");
         btnIgual.setFont(sansSerif15);
     }
@@ -168,6 +187,8 @@ public class TelaCalculadora3 extends JFrame implements ActionListener, KeyListe
         jPanelTeclado.add(btn0);
         jPanelTeclado.add(btnPonto);
         jPanelTeclado.add(btnSom);
+
+        jPanelTeclado.addKeyListener(this);
     }
 
     @Override
@@ -294,9 +315,9 @@ public class TelaCalculadora3 extends JFrame implements ActionListener, KeyListe
 
     @Override
     public void keyPressed(KeyEvent e) {
-        System.out.println("entrou");
+        System.out.println("entrou2");
         System.out.println(e.getKeyChar());
-        this.actionPerformed(new ActionEvent(this, 0, String.valueOf(e.getKeyChar())));
+        this.actionPerformed(new ActionEvent(this, 0, String.valueOf(e.getKeyChar()).toLowerCase()));
     }
 
     @Override
