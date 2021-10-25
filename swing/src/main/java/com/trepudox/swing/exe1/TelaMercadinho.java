@@ -13,7 +13,7 @@ public class TelaMercadinho extends JFrame implements ActionListener {
     static GridLayout gridLayoutPrincipal = new GridLayout(2, 1, 1, 1);
     static GridLayout gridLayoutCabecalho = new GridLayout(1, 3, 1, 1);
     static GridLayout gridLayoutProdutos = new GridLayout(6, 3, 1, 1);
-    static GridLayout gridLayoutRodape = new GridLayout(2, 1, 1, 1);
+    static GridLayout gridLayoutRodape = new GridLayout(1, 1, 1, 1);
 
     // JPanel
     static JPanel jPanelPrincipal = new JPanel(gridLayoutPrincipal);
@@ -40,8 +40,6 @@ public class TelaMercadinho extends JFrame implements ActionListener {
     static JLabel labelPrecoSalame = new JLabel("R$ 39,99");
     static JLabel labelPrecoCafe = new JLabel("R$ 8,99");
 
-    static JLabel labelPrecoTotal = new JLabel("teste");
-
     // JText
     static JTextField txtQntArroz = new JTextField("");
     static JTextField txtQntFeijao = new JTextField("");
@@ -60,10 +58,10 @@ public class TelaMercadinho extends JFrame implements ActionListener {
         initPanelRodape();
 
         this.add(jPanelPrincipal, BorderLayout.NORTH);
-        this.add(jPanelRodape);
+        this.add(jPanelRodape, BorderLayout.SOUTH);
 
         this.setTitle("Mercadinho");
-        this.setSize(400, 400);
+        this.setSize(400, 317);
         this.setResizable(false);
         this.setVisible(true);
         this.setAlwaysOnTop(true);
@@ -140,12 +138,8 @@ public class TelaMercadinho extends JFrame implements ActionListener {
     }
 
     private void initPanelRodape() {
-        buttonComprar.setMaximumSize(new Dimension(50, 50));
+        jPanelRodape.setMinimumSize(new Dimension(200, 200));
         jPanelRodape.add(buttonComprar);
-
-        labelPrecoTotal.setHorizontalAlignment(SwingConstants.CENTER);
-        labelPrecoTotal.setFont(new Font("Sans Serif", Font.BOLD, 15));
-        jPanelRodape.add(labelPrecoTotal);
 
     }
 
@@ -161,12 +155,12 @@ public class TelaMercadinho extends JFrame implements ActionListener {
 
         if (actionCommand.equals("comprar")) {
 
-            String qntArroz = txtQntArroz.getText();
-            String qntFeijao = txtQntFeijao.getText();
-            String qntBanana = txtQntBanana.getText();
-            String qntTomate = txtQntTomate.getText();
-            String qntSalame = txtQntSalame.getText();
-            String qntCafe = txtQntCafe.getText();
+            String qntArroz = txtQntArroz.getText().replace(',', '.');
+            String qntFeijao = txtQntFeijao.getText().replace(',', '.');
+            String qntBanana = txtQntBanana.getText().replace(',', '.');
+            String qntTomate = txtQntTomate.getText().replace(',', '.');
+            String qntSalame = txtQntSalame.getText().replace(',', '.');
+            String qntCafe = txtQntCafe.getText().replace(',', '.');
 
             if (!valueRegex.matcher(qntArroz.trim()).matches() ||
                     !valueRegex.matcher(qntFeijao.trim()).matches() ||
@@ -175,18 +169,51 @@ public class TelaMercadinho extends JFrame implements ActionListener {
                     !valueRegex.matcher(qntSalame.trim()).matches() ||
                     !valueRegex.matcher(qntCafe.trim()).matches()) {
                 JOptionPane.showMessageDialog(null, "Valores incorretos");
+                limpaCampos();
                 return;
             }
 
-            Double qntArrozValue = Double.parseDouble(qntArroz.equals("") ? "0" : qntArroz);
-            Double qntFeijaoValue = Double.parseDouble(qntFeijao.equals("") ? "0" : qntFeijao);
-            Double qntBananaValue = Double.parseDouble(qntBanana.equals("") ? "0" : qntBanana);
-            Double qntTomateValue = Double.parseDouble(qntTomate.equals("") ? "0" : qntTomate);
-            Double qntSalameValue = Double.parseDouble(qntSalame.equals("") ? "0" : qntSalame);
-            Double qntCafeValue = Double.parseDouble(qntCafe.equals("") ? "0" : qntCafe);
+            double qntArrozValue = Double.parseDouble(qntArroz.equals("") ? "0" : qntArroz);
+            double qntFeijaoValue = Double.parseDouble(qntFeijao.equals("") ? "0" : qntFeijao);
+            double qntBananaValue = Double.parseDouble(qntBanana.equals("") ? "0" : qntBanana);
+            double qntTomateValue = Double.parseDouble(qntTomate.equals("") ? "0" : qntTomate);
+            double qntSalameValue = Double.parseDouble(qntSalame.equals("") ? "0" : qntSalame);
+            double qntCafeValue = Double.parseDouble(qntCafe.equals("") ? "0" : qntCafe);
 
+            double finalQnt = qntArrozValue + qntFeijaoValue + qntBananaValue + qntTomateValue + qntSalameValue + qntCafeValue;
 
+            if (finalQnt == 0) {
+                JOptionPane.showMessageDialog(null, "Você precisa adicionar uma quantidade válida para comprar no mercadinho");
+                limpaCampos();
+                return;
+            }
+
+            double finalValue = qntArrozValue * parsePrecoDoProduto(labelPrecoArroz.getText());
+            finalValue += qntFeijaoValue * parsePrecoDoProduto(labelPrecoFeijao.getText());
+            finalValue += qntBananaValue * parsePrecoDoProduto(labelPrecoBanana.getText());
+            finalValue += qntTomateValue * parsePrecoDoProduto(labelPrecoTomate.getText());
+            finalValue += qntSalameValue * parsePrecoDoProduto(labelPrecoSalame.getText());
+            finalValue += qntCafeValue * parsePrecoDoProduto(labelPrecoCafe.getText());
+
+            JOptionPane.showMessageDialog(null, String.format("Você comprou %.2f kg de produto no nosso \n" +
+                    "mercadinho, resultando em R$ %.2f. \nAgradecemos sua preferência!", finalQnt, finalValue),
+                    "Compra efetuada com sucesso", JOptionPane.INFORMATION_MESSAGE);
+            limpaCampos();
 
         }
+    }
+
+    private double parsePrecoDoProduto(String preco) {
+        String precoFinal = preco.replace("R$ ", "").replace(',', '.');
+        return Double.parseDouble(precoFinal);
+    }
+
+    private void limpaCampos() {
+        txtQntArroz.setText("");
+        txtQntFeijao.setText("");
+        txtQntBanana.setText("");
+        txtQntTomate.setText("");
+        txtQntSalame.setText("");
+        txtQntCafe.setText("");
     }
 }
