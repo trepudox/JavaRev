@@ -14,13 +14,15 @@ public class TelaPizzaria extends JFrame implements ActionListener {
     static GridLayout gridLayoutCabecalho = new GridLayout(1, 4, 1, 1);
     static GridLayout gridLayoutCabecalhoExtras = new GridLayout(1, 1, 1, 1);
     static GridLayout gridLayoutPizzas = new GridLayout(3, 4, 1, 1);
+    static GridLayout gridLayoutExtras = new GridLayout(2, 4, 1, 1);
     static GridLayout gridLayoutRodape = new GridLayout(1, 1, 1, 1);
 
     // JPanel
     static JPanel jPanelPrincipal = new JPanel(gridLayoutPrincipal);
     static JPanel jPanelCabecalho = new JPanel(gridLayoutCabecalho);
     static JPanel jPanelCabecalhoExtras = new JPanel(gridLayoutCabecalho);
-    static JPanel jPanelProdutos = new JPanel(gridLayoutPizzas);
+    static JPanel jPanelPizzas = new JPanel(gridLayoutPizzas);
+    static JPanel jPanelExtras = new JPanel(gridLayoutExtras);
     static JPanel jPanelRodape = new JPanel(gridLayoutRodape);
 
     // JLabel
@@ -28,6 +30,8 @@ public class TelaPizzaria extends JFrame implements ActionListener {
     static JLabel labelCabecalhoIndividual = new JLabel("Individual");
     static JLabel labelCabecalhoRegular = new JLabel("Regular");
     static JLabel labelCabecalhoFamilia = new JLabel("Família");
+
+    static JLabel labelCabecalhoExtras = new JLabel("Extras");
 
     static JLabel labelNomePepperoni = new JLabel("Pepperoni");
     static JLabel labelPrecoPepperoniIndividual = new JLabel("R$ 15,00");
@@ -57,7 +61,7 @@ public class TelaPizzaria extends JFrame implements ActionListener {
         this.add(jPanelRodape, BorderLayout.SOUTH);
 
         this.setTitle("Pizzaria");
-        this.setSize(500, 250);
+        this.setSize(500, 300);
         this.setResizable(false);
         this.setVisible(true);
         this.setAlwaysOnTop(true);
@@ -69,7 +73,10 @@ public class TelaPizzaria extends JFrame implements ActionListener {
         jPanelPrincipal.add(jPanelCabecalho);
 
         initPanelProdutos();
-        jPanelPrincipal.add(jPanelProdutos);
+        jPanelPrincipal.add(jPanelPizzas);
+
+        initPanelCabecalhoExtras();
+        jPanelPrincipal.add(jPanelCabecalhoExtras);
     }
 
     private void initPanelCabecalho() {
@@ -92,7 +99,12 @@ public class TelaPizzaria extends JFrame implements ActionListener {
     }
 
     private void initPanelCabecalhoExtras() {
+        labelCabecalhoExtras.setHorizontalAlignment(SwingConstants.CENTER);
+        labelCabecalhoExtras.setFont(new Font("Sans Serif", Font.BOLD, 20));
 
+        jPanelCabecalhoExtras.setBorder(BorderFactory.createEtchedBorder(EtchedBorder.LOWERED));
+
+        jPanelCabecalhoExtras.add(labelCabecalhoExtras);
     }
 
     private void initPanelProdutos() {
@@ -100,28 +112,28 @@ public class TelaPizzaria extends JFrame implements ActionListener {
         labelPrecoPepperoniIndividual.setHorizontalAlignment(SwingConstants.CENTER);
         labelPrecoPepperoniRegular.setHorizontalAlignment(SwingConstants.CENTER);
         labelPrecoPepperoniFamilia.setHorizontalAlignment(SwingConstants.CENTER);
-        jPanelProdutos.add(labelNomePepperoni);
-        jPanelProdutos.add(labelPrecoPepperoniIndividual);
-        jPanelProdutos.add(labelPrecoPepperoniRegular);
-        jPanelProdutos.add(labelPrecoPepperoniFamilia);
+        jPanelPizzas.add(labelNomePepperoni);
+        jPanelPizzas.add(labelPrecoPepperoniIndividual);
+        jPanelPizzas.add(labelPrecoPepperoniRegular);
+        jPanelPizzas.add(labelPrecoPepperoniFamilia);
 
         labelNomeMussarela.setHorizontalAlignment(SwingConstants.CENTER);
         labelPrecoMussarelaIndividual.setHorizontalAlignment(SwingConstants.CENTER);
         labelPrecoMussarelaRegular.setHorizontalAlignment(SwingConstants.CENTER);
         labelPrecoMussarelaFamilia.setHorizontalAlignment(SwingConstants.CENTER);
-        jPanelProdutos.add(labelNomeMussarela);
-        jPanelProdutos.add(labelPrecoMussarelaIndividual);
-        jPanelProdutos.add(labelPrecoMussarelaRegular);
-        jPanelProdutos.add(labelPrecoMussarelaFamilia);
+        jPanelPizzas.add(labelNomeMussarela);
+        jPanelPizzas.add(labelPrecoMussarelaIndividual);
+        jPanelPizzas.add(labelPrecoMussarelaRegular);
+        jPanelPizzas.add(labelPrecoMussarelaFamilia);
 
         labelNomeSupreme.setHorizontalAlignment(SwingConstants.CENTER);
         labelPrecoSupremeIndividual.setHorizontalAlignment(SwingConstants.CENTER);
         labelPrecoSupremeRegular.setHorizontalAlignment(SwingConstants.CENTER);
         labelPrecoSupremeFamilia.setHorizontalAlignment(SwingConstants.CENTER);
-        jPanelProdutos.add(labelNomeSupreme);
-        jPanelProdutos.add(labelPrecoSupremeIndividual);
-        jPanelProdutos.add(labelPrecoSupremeRegular);
-        jPanelProdutos.add(labelPrecoSupremeFamilia);
+        jPanelPizzas.add(labelNomeSupreme);
+        jPanelPizzas.add(labelPrecoSupremeIndividual);
+        jPanelPizzas.add(labelPrecoSupremeRegular);
+        jPanelPizzas.add(labelPrecoSupremeFamilia);
     }
 
     private void initPanelRodape() {
