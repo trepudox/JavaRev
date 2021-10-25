@@ -1,4 +1,4 @@
-package com.trepudox.swing.exe1;
+package com.trepudox.swing.ALPOOexe1;
 
 public class Runner {
 
