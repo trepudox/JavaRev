@@ -64,8 +64,7 @@ public class TelaMercadinho extends JFrame implements ActionListener {
         this.setSize(400, 317);
         this.setResizable(false);
         this.setVisible(true);
-        this.setAlwaysOnTop(true);
-
+        this.setAlwaysOnTop(false);
     }
 
     private void initPanelPrincipal() {
@@ -74,7 +73,6 @@ public class TelaMercadinho extends JFrame implements ActionListener {
 
         initPanelProdutos();
         jPanelPrincipal.add(jPanelProdutos);
-
     }
 
     private void initPanelCabecalho() {
@@ -140,7 +138,6 @@ public class TelaMercadinho extends JFrame implements ActionListener {
     private void initPanelRodape() {
         jPanelRodape.setMinimumSize(new Dimension(200, 200));
         jPanelRodape.add(buttonComprar);
-
     }
 
     private void buttonInit() {
