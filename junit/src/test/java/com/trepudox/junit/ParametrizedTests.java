@@ -7,7 +7,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class ParametrizedTests {
+class ParametrizedTests {
 
     private static List<String> stringValues() {
         return List.of("valor", "valor", "valor", "valor");
