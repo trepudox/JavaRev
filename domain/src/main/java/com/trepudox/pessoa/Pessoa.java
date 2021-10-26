@@ -41,4 +41,27 @@ public class Pessoa implements Comparable<Pessoa> {
         return compareNome == 0 ? compareIdade : compareNome;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+
+        if (o == null || getClass() != o.getClass())
+            return false;
+
+        Pessoa pessoa = (Pessoa) o;
+
+        if (idade != pessoa.idade)
+            return false;
+
+        return nome != null && nome.equals(pessoa.nome);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = nome != null ? nome.hashCode() : 0;
+        result = 31 * result + idade;
+        return result;
+    }
+
 }
