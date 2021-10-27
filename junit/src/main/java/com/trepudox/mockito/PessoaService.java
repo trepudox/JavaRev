@@ -12,22 +12,24 @@ public class PessoaService {
 
     public Pessoa save(Pessoa p) {
         if (p.getNome() == null) {
-            throw new IllegalArgumentException("Nome nulo!");
+            throw new PessoaException("Nome nulo!");
         }
 
         if (p.getIdade() < 0) {
-            throw new IllegalArgumentException("Idade negativa!");
+            throw new PessoaException("Idade negativa!");
         }
 
         return pessoaRepository.save(p);
     }
 
-    public Optional<Pessoa> getPessoaByNome(String nome) {
+    public Pessoa getPessoaByNome(String nome) {
         if (nome == null) {
-            throw new IllegalArgumentException("Nome nulo!");
+            throw new PessoaException("Nome nulo!");
         }
 
-        return pessoaRepository.getByNome(nome);
+        Optional<Pessoa> pessoa = pessoaRepository.getByNome(nome);
+
+        return pessoa.orElseThrow(() -> new PessoaException("Pessoa não encontrada!"));
     }
 
 }
